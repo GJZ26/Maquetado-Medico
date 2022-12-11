@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PageNotFound from "./pages/404Page";
 import LandingPage from "./pages/LandingPage";
 
 function Router() {
@@ -6,6 +7,7 @@ function Router() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<LandingPage />} />
+                <Route path="*" element={<PageNotFound/>}/>
             </Routes>
         </BrowserRouter>
     );

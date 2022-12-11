@@ -1,9 +1,9 @@
-import Header from "../components/Header";
+import Greeting from "../components/Greeting";
 
 function Landing() {
     return (
         <>
-        <h1>Hola</h1>
+            <Greeting/>
         </>
     );
 }
