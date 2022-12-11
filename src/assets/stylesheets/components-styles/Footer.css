@@ -1,0 +1,15 @@
+footer{
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1.5px solid rgba(0, 0, 0, 0.30);
+    font-size: 26px;
+}
+.logo-type-footer{
+    margin-left: 46px;
+    width: 46.5px;
+}
+.icon-link{
+    margin: 0px 46px;
+}
