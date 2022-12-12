@@ -11,13 +11,14 @@ function Header() {
 
     const { userctx, setUserctx } = useContext(UserContext)
 
-    function logout(){
+    function logout() {
+        console.log("a")
         setUserctx({ logged: false, role: null })
         Swal.fire({
             icon: 'success',
             title: 'Sesión finalizada',
             text: 'Ha cerrado sesión'
-          })
+        })
 
     }
 
@@ -37,8 +38,11 @@ function Header() {
             return (
                 <>
                     <NavLink to="/" className="link">Inicio</NavLink>
+                    <NavLink to="/contact" className="link">Contáctanos</NavLink>
                     <NavLink to="/dashboard" className="link">Dashboard</NavLink>
-                    <NavLink onClick={logout} className="link"><BiExit /></NavLink>
+                    <NavLink onClick={() => {
+                        logout()
+                    }} className="link"><BiExit /></NavLink>
                 </>
             )
         }
@@ -48,7 +52,9 @@ function Header() {
                 <NavLink to="/" className="link">Inicio</NavLink>
                 <NavLink to="/services" className="link">Servicios</NavLink>
                 <NavLink to="/contact" className="link">Contáctanos</NavLink>
-                <NavLink className="link"><BiExit /></NavLink>
+                <NavLink onClick={() => {
+                    logout()
+                }} className="link"><BiExit /></NavLink>
             </>
         )
     }

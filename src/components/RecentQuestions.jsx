@@ -24,7 +24,6 @@ function RecentQuestions() {
             question[id].reply = diagnpstic
         }
 
-        console.log(question)
     }
 
     return (

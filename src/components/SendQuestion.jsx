@@ -1,11 +1,14 @@
 import '../assets/stylesheets/components-styles/SendQuestion.css'
 import '../assets/stylesheets/components-styles/Replies.css'
 import Messenger from './Messages';
+import UserContext from '../context/UserContext';
+import { useContext } from 'react';
 import { useState } from 'react';
+import Swal from 'sweetalert2';
 
 function SendQuestion({ Quest, setQuest }) {
 
-    // const {question, setQuestion} = useContext(QuestionContext)
+    const { userctx, setUserctx } = useContext(UserContext)
     const [ques, setQues] = useState(null)
 
     function loadMsg(msg, reply) {
@@ -27,6 +30,15 @@ function SendQuestion({ Quest, setQuest }) {
 
     function sendQuest(e) {
         e.preventDefault()
+        console.log(userctx)
+        if (!userctx.logged) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Necesitas iniciar sesión para empezar una conversación'
+            })
+            return;
+        }
         Quest.push({
             "id": Quest.length,
             "question": ques,
