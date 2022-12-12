@@ -4,7 +4,6 @@ import UserContext from "./UserContext";
 
 function PrivateRoute() {
     const {userctx, setUserctx} = useContext(UserContext)
-    console.log(userctx)
 
     return (userctx.role === "admin" ? <Outlet /> : <Navigate to="/" />);
 }

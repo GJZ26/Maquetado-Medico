@@ -8,25 +8,28 @@ import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
 import { useState } from "react";
 import PrivateRoute from "./context/PrivateRoutes";
+import QuestionContext from "./context/QuestionContext";
 
 function Router() {
 
     const [userctx, setUserctx] = useState({ logged: false, role: null })
-
+    const [question, setQuestion] = useState([])
     return (
         <BrowserRouter>
-            <UserContext.Provider value={{ userctx, setUserctx }}>
-                <Routes>
-                    <Route path="/" element={<LandingPage />} />
-                    <Route path="/services" element={<AskPage />} />
-                    <Route path="/contact" element={<ContactPage />} />
-                    <Route path="/login" element={<LoginPage />} />
-                    <Route element={<PrivateRoute />}>
-                        <Route path="/dashboard" element={<DashboardPage />} />
-                    </Route>
-                    <Route path="*" element={<PageNotFound />} />
-                </Routes>
-            </UserContext.Provider>
+            <QuestionContext.Provider value={{ question, setQuestion }}>
+                <UserContext.Provider value={{ userctx, setUserctx }}>
+                    <Routes>
+                        <Route path="/" element={<LandingPage />} />
+                        <Route path="/services" element={<AskPage />} />
+                        <Route path="/contact" element={<ContactPage />} />
+                        <Route path="/login" element={<LoginPage />} />
+                        <Route element={<PrivateRoute />}>
+                            <Route path="/dashboard" element={<DashboardPage />} />
+                        </Route>
+                        <Route path="*" element={<PageNotFound />} />
+                    </Routes>
+                </UserContext.Provider>
+            </QuestionContext.Provider>
         </BrowserRouter>
     );
 }
