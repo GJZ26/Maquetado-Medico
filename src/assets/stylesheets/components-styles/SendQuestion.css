@@ -6,6 +6,7 @@
 }
 
 .question-form{
+    border-radius: 5px;
     padding: 15px;
     width: 80%;
     background-color:#0fc2959e;
