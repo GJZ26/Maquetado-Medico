@@ -3,6 +3,7 @@ import PageNotFound from "./pages/404Page";
 import AskPage from "./pages/AskPage";
 import ContactPage from "./pages/ContactPage";
 import LandingPage from "./pages/LandingPage";
+import LoginPage from "./pages/LoginPage";
 
 function Router() {
     return (
@@ -10,8 +11,9 @@ function Router() {
             <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/services" element={<AskPage />} />
-                <Route path="*" element={<PageNotFound />} />
                 <Route path="/contact" element={<ContactPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="*" element={<PageNotFound />} />
             </Routes>
         </BrowserRouter>
     );
